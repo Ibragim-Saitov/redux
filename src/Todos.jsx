@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 
@@ -21,14 +22,13 @@ function Todos() {
         return (
          <li className='list-group-item d-flex align-item-center justify-content-between' key={idx}>
             <div>
-                <input type="checkbox" checked={item.done} />
-                {item.done}
+            onClick={() => marktext(idx)} className={item.done === true ? 'line-throungh text-green-400' : ''}>
             </div>
             <div>
             {item.text}
-            </div>
+            </div>,
             <button className='btn btn-outline-danger'
-            onClick={() => handlerDelete(idx)}
+            onClick={() => removeTask(idx)}
             >
                 X
             </button>
